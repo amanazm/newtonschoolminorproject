@@ -52,3 +52,69 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function validateSignUpForm(){
+    let students = sessionStorage.getItem("students");
+    if(students != null){
+        students = JSON.parse(students);
+    }
+    const email = document.getElementById("signupEmail").value;
+
+    if(students && checkStudentExist(students, email)) {
+        alert("student is already registered");
+        return false;
+    }
+
+    const student = {email: email, name: "Rajat", address: "zysz", password: "nbanba"};
+
+    if(!students){
+        const arr = [];
+        arr.push(student);
+        sessionStorage.setItem("students", JSON.stringify(arr));
+    } else {
+        students.push(student);
+        sessionStorage.setItem("students", JSON.stringify(students));
+    }
+
+    return true;
+}
+
+function checkStudentExist(arr, email){
+    for(let i=0;i<arr.length; i++){
+        if(arr[i]["email"] === email){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function loginUser(){
+    const email = document.getElementById("signInEmail").value;
+    const password = document.getElementById("signInPassword").value;
+
+    if(checkUserValid(email, password)){
+        handleClick(email);
+    } else{
+        alert("invalid cred");
+    }
+}
+
+function checkUserValid(email, password){
+    let students = sessionStorage.getItem("students");
+    if(students != null){
+        students = JSON.parse(students);
+        for(let i=0;i<students.length; i++) {
+            if (students[i]["email"] === email && students[i]["password"] === password) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    return false;
+}
+
+const handleClick = (email) => {
+    window.location = ('/newtonschoolminorproject/Resume.html?email=' + email)
+}
