@@ -127,5 +127,5 @@ function checkUserValid(email, password){
 }
 
 const handleClick = (email) => {
-    window.location = ('./Resume.html?email' + email)
+    window.location = ('./Resume.html?email=' + email)
 }
