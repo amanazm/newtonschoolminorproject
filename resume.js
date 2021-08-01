@@ -12,7 +12,7 @@ function init(){
             document.getElementById("resumegmail").innerText = students[i]["email"];
             document.getElementById("resumename").innerText = students[i]["name"];
             document.getElementById("resumeaddress").innerText = students[i]["address"];
-            document.getElementById("resumephonenumber").innerText = students[i]["phonenumber"];
+            document.getElementById("resumephoneNumber").innerText = students[i]["phonenumber"];
         }
     }
 }
