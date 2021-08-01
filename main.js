@@ -42,8 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
-            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 5) {
-                setInputError(inputElement, "Username must be at least 10 characters in length");
+            if (e.target.id === "signupPassword" && e.target.value.length > 0 && e.target.value.length < 8) {
+                setInputError(inputElement, "Password must be at least 8 characters in length");
+            }
+            if (e.target.id === "signupphoneNumber" && e.target.value.length > 0 && e.target.value.length < 10) {
+                setInputError(inputElement, "Phone Number must have 10 digit");
             }
         });
 
@@ -59,13 +62,21 @@ function validateSignUpForm(){
         students = JSON.parse(students);
     }
     const email = document.getElementById("signupEmail").value;
+    const name = document.getElementById("signupName").value;
+    const address = document.getElementById("signupAddress").value;
+    const phonenumber = document.getElementById("signupphoneNumber").value;
+    const password = document.getElementById("signupPassword").value;
+    if(password != document.getElementById("signupConfirmPassword").value){
+        alert("Password does not Match");
+        return false;
+    }
 
     if(students && checkStudentExist(students, email)) {
         alert("student is already registered");
         return false;
     }
 
-    const student = {email: email, name: "Rajat", address: "zysz", password: "nbanba"};
+    const student = {email: email, name: name, address: address,phonenumber: phonenumber, password: password};
 
     if(!students){
         const arr = [];
@@ -96,7 +107,7 @@ function loginUser(){
     if(checkUserValid(email, password)){
         handleClick(email);
     } else{
-        alert("invalid cred");
+        alert("Invalid credentials");
     }
 }
 
@@ -116,5 +127,5 @@ function checkUserValid(email, password){
 }
 
 const handleClick = (email) => {
-    window.location = ('/newtonschoolminorproject/Resume.html?email=' + email)
+    window.location = ('./Resume.html?email' + email)
 }

@@ -15,11 +15,11 @@
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" id ="signInEmail" class="form__input" autofocus placeholder="Username or email">
+                <input type="text" id ="signInEmail" class="form__input" autofocus placeholder="Email" required>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" id ="signInPassword" class="form__input" autofocus placeholder="Password">
+                <input type="password" id ="signInPassword" class="form__input" autofocus placeholder="Password" required>
                 <div class="form__input-error-message"></div>
             </div>
             <button class="form__button" type="submit" onclick="return loginUser()">Continue</button>
@@ -42,7 +42,7 @@
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="number" id="phoneNumber" class="form__input" autofocus placeholder="PhoneNumber" required>
+                <input type="number" id="signupphoneNumber" class="form__input" autofocus placeholder="PhoneNumber" required>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
@@ -50,11 +50,11 @@
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password" required>
+                <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password" required>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Confirm password" required>
+                <input type="text" class="form__input" id="signupConfirmPassword" autofocus placeholder="Confirm password" required>
                 <div class="form__input-error-message"></div>
             </div>
             <button class="form__button" type="submit" onclick="return validateSignUpForm()">Continue</button>
